@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<script>
+	<using xmlTag="rest" module="com.alogic.xscript.rest.Domain"/>
+	
+	<!-- 城市:广州 -->
+	<set id="city" value="101280101"/>
+	
+	<rest base="http://www.weather.com.cn/data">
+		<mGet path="/sk/${city}.html">
+			<response>
+				<result/>
+				<switch value="${httpCode}">
+					<asJson case="200">
+						<copy tag="city" path="$.weatherinfo"/>
+					</asJson>
+					<throw case="default" code="core.rest_failed" msg="远程服务调用错误."/>
+				</switch>
+			</response>
+		</mGet>
+	</rest>
+</script>
