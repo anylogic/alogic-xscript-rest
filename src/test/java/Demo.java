@@ -35,6 +35,7 @@ public class Demo {
 	public static void main(String[] args) {
 		Settings settings = Settings.get();		
 		settings.addSettings(new CommandLine(args));		
+		settings.addSettings("java:///conf/settings.xml#Demo",null,Settings.getResourceFactory());
 		
 		run("java:///xscript/Helloworld.xml#Demo",settings);
 		run("java:///xscript/weather.gz.xml#Demo",settings);
