@@ -90,7 +90,7 @@ public class SetURI extends RequestHandler {
 		if (httpRequest instanceof HttpRequestBase){
 			HttpRequestBase request = (HttpRequestBase)httpRequest;
 			
-			String p = ctx.transform(path);
+			String p = ctx.transform(base + "/" + path);
 			if (StringUtils.isEmpty(p)){
 				p = request.getURI().toString();
 			}

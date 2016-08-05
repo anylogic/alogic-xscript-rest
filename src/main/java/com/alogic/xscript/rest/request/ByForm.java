@@ -58,7 +58,7 @@ public class ByForm extends RequestHandler {
 				continue;
 			}
 			
-			Element elem = (Element)e;
+			Element elem = (Element)n;
 			String id = elem.getAttribute("id");
 			String value = elem.getAttribute("value");
 			if (StringUtils.isNotEmpty(id) && StringUtils.isNotEmpty(value)){

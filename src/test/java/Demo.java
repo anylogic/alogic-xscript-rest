@@ -37,9 +37,12 @@ public class Demo {
 		settings.addSettings(new CommandLine(args));		
 		settings.addSettings("java:///conf/settings.xml#Demo",null,Settings.getResourceFactory());
 		
-		run("java:///xscript/Helloworld.xml#Demo",settings);
-		run("java:///xscript/weather.gz.xml#Demo",settings);
-		run("java:///xscript/weather.sz.xml#Demo",settings);
+		//run("java:///xscript/Helloworld.xml#Demo",settings);
+		//run("java:///xscript/weather.gz.xml#Demo",settings);
+		//run("java:///xscript/weather.sz.xml#Demo",settings);
+		//run("java:///xscript/github.user.xml#Demo",settings);
+		//run("java:///xscript/github.user.followers.xml#Demo",settings);
+		//run("java:///xscript/github.repo.xml#Demo",settings);
+		run("java:///xscript/github.issues.xml#Demo",settings);
 	}
-
 }

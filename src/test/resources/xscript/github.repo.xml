@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<script>
+	<using xmlTag="rest" module="com.alogic.xscript.rest.Domain"/>
+	
+	<set id="keyword" value="alogic"/>
+	
+	<rest base="https://api.github.com">
+		<mGet>
+			<request>
+				<setUri path="/search/repositories">
+					<param id="q" value="${keyword}"/>
+				</setUri>
+			</request>
+			<response>
+				<result/>
+				<switch value="${httpCode}">
+					<asJson case="200">
+						<copy tag="repos" path="$.items"/>
+					</asJson>
+					<throw case="default" code="core.rest_failed" msg="远程服务调用错误."/>
+				</switch>
+			</response>
+		</mGet>
+	</rest>
+</script>

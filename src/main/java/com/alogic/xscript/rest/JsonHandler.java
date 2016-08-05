@@ -25,7 +25,7 @@ public abstract class JsonHandler extends AbstractLogiclet {
 	@Override
 	protected void onExecute(Map<String, Object> root, Map<String, Object> current, LogicletContext ctx,
 			ExecuteWatcher watcher) {
-		Map<String,Object> json = ctx.getObject(jsonId);
+		Object json = ctx.getObject(jsonId);
 		if (json == null){
 			throw new BaseException("core.no_json","It must be in a json context,check your together script.");
 		}
@@ -33,6 +33,6 @@ public abstract class JsonHandler extends AbstractLogiclet {
 		onExecute(json,root,current,ctx,watcher);
 	}
 
-	protected abstract void onExecute(Map<String, Object> json, Map<String, Object> root, Map<String, Object> current,
+	protected abstract void onExecute(Object json, Map<String, Object> root, Map<String, Object> current,
 			LogicletContext ctx, ExecuteWatcher watcher);
 }

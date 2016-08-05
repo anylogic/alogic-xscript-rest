@@ -82,8 +82,7 @@ public class AsJson extends ResponseHandler {
 		
 		if (entity != null){
 			try {
-				@SuppressWarnings("unchecked")
-				Map<String,Object> json = (Map<String, Object>) provider.parse(entity.getContent());
+				Object json = provider.parse(entity.getContent());
 				ctx.setObject(jsonId, json);
 				
 				List<Logiclet> list = children;

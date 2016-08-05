@@ -34,7 +34,7 @@ public class Copy extends JsonHandler {
 	}
 	
 	@Override
-	protected void onExecute(Map<String, Object> json, Map<String, Object> root, Map<String, Object> current,
+	protected void onExecute(Object json, Map<String, Object> root, Map<String, Object> current,
 			LogicletContext ctx, ExecuteWatcher watcher) {
 		if (StringUtils.isNotEmpty(jsonPath)){
 			Object result = JsonPath.read(json, jsonPath);

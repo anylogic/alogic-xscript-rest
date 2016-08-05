@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<script>
+	<using xmlTag="rest" module="com.alogic.xscript.rest.Domain"/>
+	
+	<set id="user" value="yyduan"/>
+	
+	<rest base="https://api.github.com">
+		<mGet path="/users/${user}/followers">
+			<response>
+				<result/>
+				<switch value="${httpCode}">
+					<asJson case="200">
+						<copy tag="followers" path="$"/>
+					</asJson>
+					<throw case="default" code="core.rest_failed" msg="远程服务调用错误."/>
+				</switch>
+			</response>
+		</mGet>
+	</rest>
+</script>
