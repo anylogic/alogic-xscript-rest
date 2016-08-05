@@ -10,6 +10,7 @@ com.alogic.xscript.rest.request.ByForm
 ### 配置参数
 
 支持下列参数：
+
 | 编号 | 代码 | 说明 |
 | ---- | ---- | ---- |
 | 1 | httpClientId | HttpClient对象id,为了控制需要，alogic-xscript-rest需要在上下文中传递一个HttpClient对象，本id缺省为httpClient |
@@ -18,4 +19,4 @@ com.alogic.xscript.rest.request.ByForm
 
 ### 案例
 
-
+- to be defined

@@ -43,6 +43,5 @@ public class Demo {
 		//run("java:///xscript/github.user.xml#Demo",settings);
 		//run("java:///xscript/github.user.followers.xml#Demo",settings);
 		//run("java:///xscript/github.repo.xml#Demo",settings);
-		run("java:///xscript/github.issues.xml#Demo",settings);
 	}
 }
