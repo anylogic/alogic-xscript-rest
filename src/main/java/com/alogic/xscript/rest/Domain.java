@@ -19,6 +19,7 @@ import com.alogic.xscript.rest.method.Trace;
 import com.alogic.xscript.rest.request.ByForm;
 import com.alogic.xscript.rest.request.ByJson;
 import com.alogic.xscript.rest.request.SetHeader;
+import com.alogic.xscript.rest.request.SetURI;
 import com.alogic.xscript.rest.response.AsJson;
 import com.alogic.xscript.rest.response.GetHeader;
 import com.alogic.xscript.rest.response.Result;
@@ -33,7 +34,7 @@ import com.anysoft.util.PropertiesConstants;
  */
 public class Domain extends Segment {
 	protected String base;
-	protected String baseId = "base";
+	protected String cid = "$rest-domain";
 	public Domain(String tag, Logiclet p) {
 		super(tag, p);
 		
@@ -46,6 +47,7 @@ public class Domain extends Segment {
 		registerModule("mTrace",Trace.class);
 		registerModule("byForm",ByForm.class);
 		registerModule("byJson",ByJson.class);
+		registerModule("setUri",SetURI.class);
 		registerModule("setHeader",SetHeader.class);
 		registerModule("getHeader",GetHeader.class);
 		registerModule("asJson",AsJson.class);
@@ -58,7 +60,7 @@ public class Domain extends Segment {
 		super.configure(p);
 		
 		base = PropertiesConstants.getString(p,"base", "");
-		baseId = PropertiesConstants.getString(p,"baseId",baseId);
+		cid = PropertiesConstants.getString(p,"cid",cid);
 	}	
 
 	@Override
@@ -66,10 +68,10 @@ public class Domain extends Segment {
 			Map<String, Object> current, LogicletContext ctx, ExecuteWatcher watcher) {
 		if (StringUtils.isNotEmpty(base)){
 			try {
-				ctx.setObject(baseId, base);
+				ctx.setObject(cid, base);
 				super.onExecute(root, current, ctx, watcher);
 			}finally{
-				ctx.removeObject(baseId);
+				ctx.removeObject(cid);
 			}
 		}
 	}	

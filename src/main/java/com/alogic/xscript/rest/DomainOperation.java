@@ -19,21 +19,21 @@ import com.anysoft.util.PropertiesConstants;
  *
  */
 public abstract class DomainOperation extends AbstractLogiclet {
-	protected String baseId = "base";
+	protected String pid = "$rest-domain";
 	public DomainOperation(String tag, Logiclet p) {
 		super(tag, p);
 	}
 	
 	public void configure(Properties p){
 		super.configure(p);
-		baseId = PropertiesConstants.getString(p,"baseId", baseId);
+		pid = PropertiesConstants.getString(p,"pid", pid);
 	}
 	
 	@Override
 	protected void onExecute(Map<String, Object> root,
 			Map<String, Object> current, LogicletContext ctx,
 			ExecuteWatcher watcher) {
-		String base = ctx.getObject(baseId);
+		String base = ctx.getObject(pid);
 		if (StringUtils.isEmpty(base)){
 			throw new BaseException("core.no_base","It must be in a domain context,check your together script.");
 		}
