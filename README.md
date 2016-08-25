@@ -24,7 +24,7 @@ alogic-xscript-rest是基于xscript2.0的rest插件，提供了调用rest服务�
     <dependency>
         <groupId>com.github.anylogic</groupId>
         <artifactId>alogic-xscript-rest</artifactId>
-        <version>4.5.2-20150825</version>
+        <version>4.5.2-20160825</version>
     </dependency>   	
 
 ```
