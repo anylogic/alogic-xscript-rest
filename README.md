@@ -1,9 +1,52 @@
 alogic-xscript-rest
 ===================
 
+### Overview
+
 alogic-xscript-rest是基于xscript2.0的rest插件，提供了调用rest服务所需的相关指令。
 
-### 案例
+### Getting started
+
+按照以下步骤，您可轻松在您的项目中使用alogic-xscript-rest.
+
+不过开始之前，我们希望您了解xscript的相关知识。
+
+- [xscript2.0](https://github.com/yyduan/alogic/blob/master/alogic-doc/alogic-common/xscript2.md) - 您可以了解xscript的基本原理及基本编程思路
+- [xscript2.0基础插件](https://github.com/yyduan/alogic/blob/master/alogic-doc/alogic-common/xscript2-plugins.md) - 如何使用xscript的基础插件
+- [基于xscript的together](https://github.com/yyduan/alogic/blob/master/alogic-doc/alogic-common/xscript2-together.md) - 如何将你的script发布为alogic服务
+
+#### 增加maven依赖
+
+您可以在[中央仓库](http://mvnrepository.com/)上找到[alogic-xscript-rest](http://mvnrepository.com/search?q=com.github.anylogic%3Aalogic-xscript-rest)的发布版本。
+
+```xml
+
+    <dependency>
+        <groupId>com.github.anylogic</groupId>
+        <artifactId>alogic-xscript-rest</artifactId>
+        <version>4.5.2-20150825</version>
+    </dependency>   	
+
+```
+
+> alogic-xscript-rest版本号前面的4.5.2是其所依赖的[HttpClient](http://hc.apache.org/httpcomponents-client-4.5.x/index.html)的版本号，后面的20160825是其发布的日期。
+
+#### 引入Namespace
+
+在您的脚本中，你需要引入rest作为Namespace，比如:
+
+```xml
+	
+	<using xmlTag="rest" module="com.alogic.xscript.rest.Domain"/>
+	
+	<rest>
+		<!--
+			在这里你可以使用alogic-xcript-rest提供的语句
+		-->
+	</rest>
+```
+
+### Example
 
 调用www.weather.com.cn的天气服务接口，查询广州的天气情况。
 
@@ -31,11 +74,6 @@ alogic-xscript-rest是基于xscript2.0的rest插件，提供了调用rest服务�
 	</script>
 
 ```
-
-### 如何开始？
-
-为了更好的开始使用alogic-xscript-rest，我们建议您先了解[xscript2.0](https://github.com/yyduan/alogic/blob/master/alogic-doc/alogic-common/xscript2.md)以及
-[xscript2.0基础插件](https://github.com/yyduan/alogic/blob/master/alogic-doc/alogic-common/xscript2-plugins.md).
 
 您可以参考我们的[Demo代码](src/test/java/Demo.java)来测试您的脚本。我们的Demo非常简单:
 
@@ -83,10 +121,14 @@ alogic-xscript-rest是基于xscript2.0的rest插件，提供了调用rest服务�
 
 当然，您的脚本最终都是要作为一个服务或者批处理集成在应用中，您可以参考[基于xscript的together](https://github.com/yyduan/alogic/blob/master/alogic-doc/alogic-common/xscript2-together.md)。
 
-### 插件参考
+### Reference
 
 参见[alogic-xscript-rest参考](src/docs/reference.md).
 
-### 版本历史
-    - 0.0.1 [20160726 duanyy]
-		+ 初次发布
+### History
+
+- 4.5.2 [20160726 duanyy]
+	+ 初次发布
+- 4.5.2.1 [20160825 duanyy]
+	+ 发布20160825版本
+	
