@@ -103,7 +103,7 @@ public class SetURI extends RequestHandler {
 						try {
 							buffer.append("&").append(pair.key()).append("=").append(URLEncoder.encode(value,encoding));
 						} catch (UnsupportedEncodingException e) {
-							logger.error(e);
+							logger.error("failed to encode parameters.",e);
 						}
 					}
 				}
