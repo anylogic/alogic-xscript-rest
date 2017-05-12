@@ -133,3 +133,6 @@ alogic-xscript-rest是基于xscript2.0的rest插件，提供了调用rest服务�
 	+ 发布20160825版本
 - 4.5.2.2 [20170315 duanyy]
 	+ 基于alogic-1.6.7,发布20170315版本
+- 4.5.2.3 [20170512 duanyy]
+	+ 基于alogic-1.6.8发布新版本
+	+ 解决1.6.8中xscript的兼容性问题

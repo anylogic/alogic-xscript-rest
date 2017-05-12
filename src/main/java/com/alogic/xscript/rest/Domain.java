@@ -1,12 +1,11 @@
 package com.alogic.xscript.rest;
 
 
-import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-
 import com.alogic.xscript.ExecuteWatcher;
 import com.alogic.xscript.Logiclet;
 import com.alogic.xscript.LogicletContext;
+import com.alogic.xscript.doc.XsObject;
 import com.alogic.xscript.plugins.Segment;
 import com.alogic.xscript.rest.json.Copy;
 import com.alogic.xscript.rest.method.Delete;
@@ -64,8 +63,7 @@ public class Domain extends Segment {
 	}	
 
 	@Override
-	protected void onExecute(Map<String, Object> root,
-			Map<String, Object> current, LogicletContext ctx, ExecuteWatcher watcher) {
+	protected void onExecute(XsObject root,XsObject current, LogicletContext ctx, ExecuteWatcher watcher) {
 		if (StringUtils.isNotEmpty(base)){
 			try {
 				ctx.setObject(cid, base);

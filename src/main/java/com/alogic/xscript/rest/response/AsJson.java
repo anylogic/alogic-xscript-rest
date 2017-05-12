@@ -2,18 +2,16 @@ package com.alogic.xscript.rest.response;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import com.alogic.xscript.ExecuteWatcher;
 import com.alogic.xscript.Logiclet;
 import com.alogic.xscript.LogicletContext;
+import com.alogic.xscript.doc.XsObject;
 import com.alogic.xscript.rest.ResponseHandler;
 import com.anysoft.util.BaseException;
 import com.anysoft.util.Properties;
@@ -76,10 +74,8 @@ public class AsJson extends ResponseHandler {
 	}		
 	
 	@Override
-	protected void onExecute(String base, HttpClient httpClient, HttpResponse httpResponse, Map<String, Object> root,
-			Map<String, Object> current, LogicletContext ctx, ExecuteWatcher watcher) {
+	protected void onExecute(String base, HttpClient httpClient, HttpResponse httpResponse, XsObject root,XsObject current, LogicletContext ctx, ExecuteWatcher watcher) {
 		HttpEntity entity = httpResponse.getEntity();
-		
 		if (entity != null){
 			try {
 				Object json = provider.parse(entity.getContent());
@@ -97,11 +93,10 @@ public class AsJson extends ResponseHandler {
 			}catch (BaseException ex){
 				throw ex;
 			}catch (Exception ex){
-				current.put("error", "Can not parse json content.");
+				log("Can not parse json content" + entity.getContentLength());
 			}finally{
 				ctx.removeObject(jsonId);
 			}
 		}
 	}
-
 }

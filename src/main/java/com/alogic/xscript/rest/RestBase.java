@@ -3,7 +3,6 @@ package com.alogic.xscript.rest;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -11,10 +10,10 @@ import org.apache.http.impl.client.HttpClients;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import com.alogic.xscript.ExecuteWatcher;
 import com.alogic.xscript.Logiclet;
 import com.alogic.xscript.LogicletContext;
+import com.alogic.xscript.doc.XsObject;
 import com.anysoft.util.BaseException;
 import com.anysoft.util.IOTools;
 import com.anysoft.util.Properties;
@@ -126,7 +125,7 @@ public abstract class RestBase extends DomainOperation{
 	}
 
 	@Override
-	protected void onExecute(String base, Map<String, Object> root, Map<String, Object> current,
+	protected void onExecute(String base, XsObject root,XsObject current,
 			LogicletContext ctx, ExecuteWatcher watcher) {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		String uri = ctx.transform(base + "/" + path);

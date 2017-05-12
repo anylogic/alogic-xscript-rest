@@ -17,6 +17,8 @@ import org.w3c.dom.NodeList;
 import com.alogic.xscript.ExecuteWatcher;
 import com.alogic.xscript.Logiclet;
 import com.alogic.xscript.LogicletContext;
+import com.alogic.xscript.doc.XsObject;
+import com.alogic.xscript.doc.json.JsonObject;
 import com.alogic.xscript.rest.RequestHandler;
 import com.anysoft.util.Properties;
 import com.anysoft.util.XmlElementProperties;
@@ -80,9 +82,9 @@ public class ByJson extends RequestHandler {
 			Map<String, Object> current, LogicletContext ctx, ExecuteWatcher watcher) {
 		if (httpRequest instanceof HttpEntityEnclosingRequestBase){
 			Map<String,Object> jsonData = new HashMap<String,Object>();
-			
+			XsObject doc = new JsonObject("root",jsonData);
 			for (Logiclet child:children){
-				child.execute(jsonData, jsonData, ctx, watcher);
+				child.execute(doc, doc, ctx, watcher);
 			}
 			
 			String text = provider.toJson(jsonData);
